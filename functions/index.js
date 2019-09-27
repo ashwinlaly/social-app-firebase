@@ -19,4 +19,4 @@ app.all("*",(req,res) => {
     });
 });
 
-exports.api = functions.https.onRequest(app);
+exports.api = functions.region('asia-northeast1').https.onRequest(app);

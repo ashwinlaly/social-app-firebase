@@ -5,7 +5,7 @@ var express = require('express'),
 var route = function () {
 
     userRoute.get('/users', (req,res) => {
-        userRef.get().then( data => {
+        userRef.orderBy('createdat','desc').get().then( data => {
             let users = [];
             data.forEach( dt => {
                 users.push(dt.data());
@@ -32,9 +32,10 @@ var route = function () {
         var user = {
             name : req.body.name,
             email : req.body.email,
-            createdat : db.firestore.Timestamp.fromDate(new Date()),
+            createdat : new Date().toISOString(),
             age : req.body.age
         };
+        // db.firestore.Timestamp.fromDate(new Date())
         userRef.add(user).then( res => {
             res.status(200).send({
                 message : "User Created",
