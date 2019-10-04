@@ -1,8 +1,3 @@
-//
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-
 require('dotenv').config()
 const express = require('express'),
       app = express(),
