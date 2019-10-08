@@ -1,6 +1,5 @@
 const express = require('express'),
       authRoute = express.Router(),
-      db = require('../db'),
       firebase = require('firebase');
     
 const route = function () {
